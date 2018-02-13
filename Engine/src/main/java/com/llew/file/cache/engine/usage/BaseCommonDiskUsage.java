@@ -121,7 +121,7 @@ abstract class BaseCommonDiskUsage implements HttpProxyCacheUsage {
         public int compare(File firstFile, File secondFile) {
             long first = firstFile.lastModified();
             long second = secondFile.lastModified();
-            return first < second ? -1 : first == second ? 0 : 1;
+            return first < second ? 1 : first == second ? 0 : -1;
         }
     }
 
