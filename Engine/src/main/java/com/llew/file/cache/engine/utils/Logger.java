@@ -11,6 +11,8 @@ import android.util.Log;
 
 public class Logger {
 
+    private static String TAG = "CacheEngine";
+
     private static boolean logEnable;
 
     public static void enable(boolean enable) {
@@ -18,11 +20,13 @@ public class Logger {
     }
 
     public static void e(String message) {
-        e("Logger", message);
+        e(TAG, message);
     }
 
     public static void e(String tag, String message) {
-        Log.e(tag, "Thread : " + Thread.currentThread() + " || message = 【" + message + "】");
+        if (logEnable) {
+            Log.e(tag, "Thread : " + Thread.currentThread() + " || message = 【" + message + "】");
+        }
     }
 
     public static void e(Throwable e) {

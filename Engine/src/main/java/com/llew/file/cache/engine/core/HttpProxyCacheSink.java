@@ -125,10 +125,10 @@ class HttpProxyCacheSink implements com.llew.file.cache.engine.config.HttpProxyC
             mReadCursor = new RandomAccessFile(mCachedFile, "r");
             mWriteCursor = new RandomAccessFile(mCachedFile, "rw");
             touchFile();
+            Logger.e("file : " + completedFile.getName() + " has successfully cached and cache size = " + this.mCachedFile.length());
         } catch (Throwable e) {
             throw new HttpProxyCacheException(e);
         }
-        Logger.e("file : " + completedFile.getName() + " has successfully cached and cache size = " + this.mCachedFile.length());
     }
 
     @Override
