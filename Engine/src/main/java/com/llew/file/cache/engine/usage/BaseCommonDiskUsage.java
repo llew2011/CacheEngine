@@ -53,7 +53,7 @@ abstract class BaseCommonDiskUsage implements HttpProxyCacheUsage {
                 }
             }
         } catch (Throwable ignore) {
-            Logger.e(ignore);
+            throw new HttpProxyCacheException(ignore);
         }
     }
 

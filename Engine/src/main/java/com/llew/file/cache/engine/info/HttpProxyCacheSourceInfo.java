@@ -23,8 +23,11 @@ public class HttpProxyCacheSourceInfo {
 
     @Override
     public int hashCode() {
-        final int prime = 31;
-        return (prime + url.hashCode()) * prime + mime.hashCode();
+        long prime = 0;
+        prime = prime * 31 + (TextUtils.isEmpty(url) ? 0 : url.hashCode());
+        prime = prime * 31 + (TextUtils.isEmpty(mime) ? 0 : mime.hashCode());
+        prime = prime * 31 + length;
+        return (int) prime;
     }
 
     @Override
@@ -32,10 +35,7 @@ public class HttpProxyCacheSourceInfo {
         if (this == obj) {
             return true;
         }
-        if (null == obj) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
+        if (!(obj instanceof HttpProxyCacheSourceInfo)) {
             return false;
         }
         HttpProxyCacheSourceInfo info = (HttpProxyCacheSourceInfo) obj;
